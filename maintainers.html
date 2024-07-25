@@ -53,7 +53,7 @@ else {
     const prs = response.search.edges
     for (let i = 0; i < prs.length; i++) {
       if (data.has(prs[i].node.mergedBy.login)) {
-        pr = data.get(prs[i].node.mergedBy.login)
+        var pr = data.get(prs[i].node.mergedBy.login)
         pr.set('count',pr.get('count')+1)
         if (pr.get('firstMerged')>prs[i].node.mergedAt) {
           pr.set('firstMerged',prs[i].node.mergedAt)
@@ -89,7 +89,7 @@ else {
 }
 </script>
 
-<h1 id="title"></h1>
+<h1 id="title">Maintainers</h1>
 
 <table id="results">
   <tr>
