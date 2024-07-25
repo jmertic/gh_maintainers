@@ -1,0 +1,102 @@
+<script type="module">
+import { Octokit } from "https://esm.sh/@octokit/core";
+import { paginateGraphQL } from "https://esm.sh/@octokit/plugin-paginate-graphql";
+
+const urlParams = new URLSearchParams(window.location.search);
+const MyOctokit = Octokit.plugin(paginateGraphQL);
+const octokit = new MyOctokit({ auth: urlParams.get('gh_auth') });
+
+var querystring = ''
+if ( urlParams.get('org') !== null ) {
+  querystring = " org:".concat(urlParams.get('org')) 
+}
+if ( urlParams.get('repo') !== null ) {
+  querystring = " repo:".concat(urlParams.get('org'),'/',urlParams.get('repo')) 
+}
+console.log(querystring)
+if ( !urlParams.get('org') || !urlParams.get('gh_auth') ) {
+  document.getElementById('message').innerHTML = "Missing parameters org and gh_auth are both required"
+}
+else {
+  const pageIterator = octokit.graphql.paginate.iterator(
+  `query paginate($cursor: String){
+    search(query: "${querystring} is:pr merged:>2023-07-24", type: ISSUE, first:100, after: $cursor) {
+      edges {
+        node {
+          ... on PullRequest {
+            url 
+            mergedAt
+            mergedBy {login}
+            repository {name}
+          }
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }`,
+  );
+  var data = new Map()
+
+  var table = document.getElementById("results");
+  document.getElementById('title').innerHTML = "Maintainers for ".concat(urlParams.get('org'),'/',urlParams.get('repo'))
+  document.getElementById('message').innerHTML = "Loading records."
+
+  for await (const response of pageIterator) {
+    document.getElementById('message').innerHTML = document.getElementById('message').innerHTML + "."
+
+    const prs = response.search.edges
+    for (let i = 0; i < prs.length; i++) {
+      if (data.has(prs[i].node.mergedBy.login)) {
+        pr = data.get(prs[i].node.mergedBy.login)
+        pr.set('count',pr.get('count')+1)
+        if (pr.get('firstMerged')>prs[i].node.mergedAt) {
+          pr.set('firstMerged',prs[i].node.mergedAt)
+        }
+        if (pr.get('lastMerged')<prs[i].node.mergedAt) {
+          pr.set('lastMerged',prs[i].node.mergedAt)
+        }
+          var repolist = pr.get('repos')
+          repolist.push(prs[i].node.repository.name)
+          pr.set('repos',repolist)
+      }
+      else {
+        var pr = new Map()
+        pr.set('lastMerged',prs[i].node.mergedAt)
+        pr.set('firstMerged',prs[i].node.mergedAt)
+        pr.set('count',1)
+        pr.set('repos', [prs[i].node.repository.name])
+      }
+      
+      data.set(prs[i].node.mergedBy.login,pr)
+    }
+  }
+      
+  for (let [key, value] of data) {
+      var row = table.insertRow(1);
+      row.insertCell(0).innerHTML = key
+      row.insertCell(1).innerHTML = value.get('firstMerged')
+      row.insertCell(2).innerHTML = value.get('lastMerged')
+      row.insertCell(3).innerHTML = value.get('count')
+      row.insertCell(4).innerHTML = [...new Set(value.get('repos'))].join()
+  }
+  document.getElementById('message').innerHTML = "Done."
+}
+</script>
+
+<h1 id="title"></h1>
+
+<table id="results">
+  <tr>
+    <th>User</th>
+    <th>First Merge</th>
+    <th>Last Merge</th>
+    <th>Merge Count</th>
+    <th>Repos Contributed To</th>
+  </tr>
+</table>
+
+<pre id="message">
+</pre>
