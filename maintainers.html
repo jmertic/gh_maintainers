@@ -41,7 +41,10 @@ else {
   var data = new Map()
 
   var table = document.getElementById("results");
-  document.getElementById('title').innerHTML = "Maintainers for ".concat(urlParams.get('org'),'/',urlParams.get('repo'))
+  document.getElementById('title').innerHTML = "Maintainers for ".concat(urlParams.get('org'))
+  if ( urlParams.get('repo') !== null) {
+    document.getElementById('title').innerHTML = "Maintainers for ".concat(urlParams.get('org'),'/',urlParams.get('repo'))
+  }
   document.getElementById('message').innerHTML = "Loading records."
 
   for await (const response of pageIterator) {
