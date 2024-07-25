@@ -13,14 +13,14 @@ if ( urlParams.get('org') !== null ) {
 if ( urlParams.get('repo') !== null ) {
   querystring = " repo:".concat(urlParams.get('org'),'/',urlParams.get('repo')) 
 }
-console.log(querystring)
 if ( !urlParams.get('org') || !urlParams.get('gh_auth') ) {
   document.getElementById('message').innerHTML = "Missing parameters org and gh_auth are both required"
 }
 else {
+  var checkdate = Intl.DateTimeFormat('en-CA').format(new Date().setFullYear(new Date().getFullYear() - 1))
   const pageIterator = octokit.graphql.paginate.iterator(
   `query paginate($cursor: String){
-    search(query: "${querystring} is:pr merged:>2023-07-24", type: ISSUE, first:100, after: $cursor) {
+    search(query: "${querystring} is:pr merged:>${checkdate}", type: ISSUE, first:100, after: $cursor) {
       edges {
         node {
           ... on PullRequest {
