@@ -13,14 +13,14 @@ if ( urlParams.get('org') !== null ) {
 if ( urlParams.get('repo') !== null ) {
   querystring = " repo:".concat(urlParams.get('org'),'/',urlParams.get('repo')) 
 }
-console.log(querystring)
 if ( !urlParams.get('org') || !urlParams.get('gh_auth') ) {
   document.getElementById('message').innerHTML = "Missing parameters org and gh_auth are both required"
 }
 else {
+  var checkdate = Intl.DateTimeFormat('en-CA').format(new Date().setFullYear(new Date().getFullYear() - 1))
   const pageIterator = octokit.graphql.paginate.iterator(
   `query paginate($cursor: String){
-    search(query: "${querystring} is:pr merged:>2023-07-24", type: ISSUE, first:100, after: $cursor) {
+    search(query: "${querystring} is:pr merged:>${checkdate}", type: ISSUE, first:100, after: $cursor) {
       edges {
         node {
           ... on PullRequest {
@@ -52,6 +52,7 @@ else {
 
     const prs = response.search.edges
     for (let i = 0; i < prs.length; i++) {
+      var pr = null
       if (data.has(prs[i].node.mergedBy.login)) {
         pr = data.get(prs[i].node.mergedBy.login)
         pr.set('count',pr.get('count')+1)
@@ -66,7 +67,7 @@ else {
           pr.set('repos',repolist)
       }
       else {
-        var pr = new Map()
+        pr = new Map()
         pr.set('lastMerged',prs[i].node.mergedAt)
         pr.set('firstMerged',prs[i].node.mergedAt)
         pr.set('count',1)
@@ -89,7 +90,7 @@ else {
 }
 </script>
 
-<h1 id="title"></h1>
+<h1 id="title">Maintainers</h1>
 
 <table id="results">
   <tr>
