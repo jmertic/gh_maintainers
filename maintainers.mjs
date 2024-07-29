@@ -1,3 +1,9 @@
+#!/usr/bin/env node
+//
+// Copyright this project and it's contributors
+// SPDX-License-Identifier: Apache-2.0
+//
+
 import { Octokit } from "@octokit/core";
 import { paginateGraphQL } from "@octokit/plugin-paginate-graphql";
 import { Command } from 'commander';
