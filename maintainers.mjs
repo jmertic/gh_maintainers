@@ -20,25 +20,25 @@ const options = program.opts();
 const MyOctokit = Octokit.plugin(paginateGraphQL);
 const octokit = new MyOctokit({ auth: options.ghApiKey });
 const checkdate = Intl.DateTimeFormat('en-CA').format(new Date().setFullYear(new Date().getFullYear() - 1))
-var data = new Map()
-var doc;
+let data = new Map()
+let doc;
 try {
-  var doc = yaml.load(fs.readFileSync(options.config, 'utf8'));
+  doc = yaml.load(fs.readFileSync(options.config, 'utf8'));
 } catch (e) {
   console.log(e);
 }
 
 for ( let x in doc ) {
   console.log(`Loading projects for ${doc[x]['umbrella']}`)
-  var umbrella = new Map()
+  let umbrella = new Map()
   for ( let projectName in doc[x]['projects']) {
     console.log(`Processing ${doc[x]['projects'][projectName]['project']}`)
-    var project = new Map()
+    let project = new Map()
     for ( let repoURL in doc[x]['projects'][projectName]['repos'] ) {
       console.log(`Getting maintainers for ${doc[x]['projects'][projectName]['repos'][repoURL]}`)
-      var uri = doc[x]['projects'][projectName]['repos'][repoURL].replace('https://github.com/','');
-      var [org, repo] = uri.split("/");
-      var querystring = " org:".concat(org) 
+      let uri = doc[x]['projects'][projectName]['repos'][repoURL].replace('https://github.com/','');
+      let [org, repo] = uri.split("/");
+      let querystring = " org:".concat(org) 
       if ( repo ) {
         querystring = " repo:".concat(org,'/',repo) 
       }
@@ -71,13 +71,13 @@ for ( let x in doc ) {
         }
       }`,
       );
-      var counter = 1
+      let counter = 1
       for await (const response of pageIterator) {
         console.log(`Loading first ${100*counter++} records...`)
 
         const prs = response.search.edges
         for (let i = 0; i < prs.length; i++) {
-          var pr = null
+          let pr = null
           if (project.has(prs[i].node.mergedBy.login)) {
             pr = project.get(prs[i].node.mergedBy.login)
             pr.set('count',pr.get('count')+1)
@@ -112,7 +112,7 @@ for ( let x in doc ) {
 
 console.log("Converting to CSV file")
 
-var outputcsv = 'Umbrella,Project,GitHubID,Name,Email,FirstMerge,LastMerge,Count,Repos\n'
+let outputcsv = 'Umbrella,Project,GitHubID,Name,Email,FirstMerge,LastMerge,Count,Repos\n'
 for (let [umbrella, projects] of data) {
   for (let [projectName, project] of projects) {
     for (let [maintainerName,maintainer] of project) {
