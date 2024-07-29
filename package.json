@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@octokit/core": "^6.1.2",
+    "@octokit/plugin-paginate-graphql": "^5.2.2",
+    "commander": "^12.1.0",
+    "js-yaml": "^4.1.0"
+  }
+}

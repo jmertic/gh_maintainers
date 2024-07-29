@@ -1,0 +1,274 @@
+- umbrella: 'Academy Software Foundation'
+  projects:
+    - project: 'Academy Software Foundation Common'
+      repos:
+      - https://github.com/academysoftwarefoundation/.github
+      - https://github.com/academysoftwarefoundation/artwork
+      - https://github.com/academysoftwarefoundation/aswf-landscape
+      - https://github.com/academysoftwarefoundation/foundation
+      - https://github.com/academysoftwarefoundation/tac
+      - https://github.com/MotionPictureSoftwareFoundation 
+      - https://github.com/aswf
+    - project: 'CI Working Group'
+      repos:
+      - https://github.com/academysoftwarefoundation/archived-ci-management
+      - https://github.com/academysoftwarefoundation/aswf-docker
+      - https://github.com/academysoftwarefoundation/aswf-sample-project
+      - https://github.com/academysoftwarefoundation/aswf-sample-wg
+      - https://github.com/academysoftwarefoundation/wg-ci
+    - project: 'Digital Production Example Library (DPEL)'
+      repos:
+      - https://github.com/AcademySoftwareFoundation/dpel-website
+      - https://github.com/DigitalProductionExampleLibrary 
+    - project: MaterialX
+      repos:
+      - https://github.com/AcademySoftwareFoundation/MaterialX
+      - https://github.com/AcademySoftwareFoundation/materialx-website
+      - https://github.com/AcademySoftwareFoundation/OpenPBR 
+    - project: 'Open Review Initiative'
+      repos:
+      - https://github.com/academysoftwarefoundation/EncodingGuidelines
+      - https://github.com/academysoftwarefoundation/OpenRV
+      - https://github.com/academysoftwarefoundation/ori-shared-platform
+      - https://github.com/academysoftwarefoundation/wg-review-approval
+      - https://github.com/academysoftwarefoundation/xstudio
+    - project: 'Open Shading Language (OSL)'
+      repos:
+      - https://github.com/AcademySoftwareFoundation/OpenShadingLanguage
+    - project: OpenAssetIO
+      repos:
+      - https://github.com/OpenAssetIO
+    - project: OpenColorIO
+      repos:
+      - https://github.com/AcademySoftwareFoundation/OpenColorIO 
+      - https://github.com/AcademySoftwareFoundation/OpenColorIO-Config-ACES
+      - https://github.com/AcademySoftwareFoundation/ColorInterop  
+    - project: OpenCue
+      repos:
+      - https://github.com/AcademySoftwareFoundation/OpenCue
+      - https://github.com/AcademySoftwareFoundation/opencue.io
+    - project: OpenEXR
+      repos:
+      - https://github.com/AcademySoftwareFoundation/openexr
+      - https://github.com/AcademySoftwareFoundation/Imath 
+      - https://github.com/AcademySoftwareFoundation/openexr-images 
+      - https://github.com/AcademySoftwareFoundation/openexr-examples 
+      - https://github.com/AcademySoftwareFoundation/openexr-website 
+    - project: OpenFX
+      repos:
+      - https://github.com/AcademySoftwareFoundation/openfx
+    - project: OpenImageIO
+      repos:
+      - https://github.com/academysoftwarefoundation/OpenImageIO
+      - https://github.com/academysoftwarefoundation/OpenImageIO-clatest
+      - https://github.com/academysoftwarefoundation/OpenImageIO-images
+    - project: OpenTimelineIO
+      repos:
+      - https://github.com/AcademySoftwareFoundation/OpenTimelineIO
+      - https://github.com/opentimelineio 
+    - project: OpenVDB
+      repos:
+      - https://github.com/AcademySoftwareFoundation/openvdb
+      - https://github.com/AcademySoftwareFoundation/openvdb-website
+    - project: 'RAW to ACES Utility'
+      repos:
+      - https://github.com/AcademySoftwareFoundation/rawtoaces
+      - https://github.com/AcademySoftwareFoundation/rawtoaces-data 
+    - project: Rez
+      repos:
+      - https://github.com/academysoftwarefoundation/rez
+      - https://github.com/academysoftwarefoundation/rez-test
+    - project: 'Working Group for Rust Bindings'
+      repos:
+      - https://github.com/vfx-rs
+- umbrella: 'LF Energy'
+  projects:
+    - project: Arras
+      repos:
+      - https://github.com/arras-energy
+    - project: 'Battery Data Alliance'
+      repos:
+      - https://github.com/BatteryDataAlliance
+    - project: 'Carbon Data Specification (CDSC) Customer Data WG'
+      repos:
+      - https://github.com/carbon-data-specification/Customer-Data
+    - project: 'Carbon Data Specification (CDSC) Power Systems WG'
+      repos:
+      - https://github.com/carbon-data-specification/Power-Systems-Data
+      - https://github.com/carbon-data-specification/Power-Systems-Data-API-Demonstrator 
+    - project: CitrineOS
+      repos:
+      - https://github.com/citrineos
+    - project: CoMPAS
+      repos:
+      - https://github.com/com-pas/
+    - project: covXtreme
+      repos:
+      - https://github.com/covxtreme 
+    - project: Dynawo
+      repos:
+      - https://github.com/dynawo
+    - project: EVerest
+      repos:
+      - https://github.com/EVerest/
+      - https://github.com/ocpp-cloud-connector
+    - project: FledgePOWER
+      repos:
+      - https://github.com/fledge-power/
+    - project: FlexMeasures
+      repos:
+      - https://github.com/flexmeasures
+    - project: 'Grid Capacity Map'
+      repos:
+      - https://github.com/gridcapacitymap/
+    - project: 'Grid eXchange Fabric'
+      repos:
+      - https://github.com/OSGP/
+    - project: 'GRIP (Grid Resilience and Intelligence Platform)'
+      repos:
+      - https://github.com/gripenergy
+    - project: Hyphae
+      repos:
+      - https://github.com/hyphae/
+    - project: 'LF Energy Common'
+      repos:
+      - https://github.com/lf-energy
+      - https://github.com/lfenergy
+      - https://github.com/lfenergyarchitecturemodel 
+    - project: 'LFESS Common'
+      repos:
+      - https://github.com/lfess
+      - https://github.com/carbon-data-specification/.github 
+      - https://github.com/carbon-data-specification/cla-test 
+    - project: OpenEEmeter
+      repos:
+      - https://github.com/openeemeter/
+    - project: OpenFIDO
+      repos:
+      - https://github.com/openfido
+    - project: OpenGEH
+      repos:
+      - https://github.com/opengeh
+    - project: openLEADR
+      repos:
+      - https://github.com/OpenLEADR/
+    - project: OpenSCD
+      repos:
+      - https://github.com/openscd
+    - project: OpenSTEF
+      repos:
+      - https://github.com/OpenSTEF/
+    - project: 'OpenSynth (Synthetic Energy Data)'
+      repos:
+      - https://github.com/OpenSynth-energy 
+    - project: OperatorFabric
+      repos:
+      - https://github.com/opfab/
+    - project: 'Power Grid Model'
+      repos:
+      - https://github.com/PowerGridModel 
+    - project: PowSyBl
+      repos:
+      - https://github.com/powsybl/
+    - project: 'Real Time Data Ingestion Platform (RTDIP)'
+      repos:
+      - https://github.com/rtdip
+    - project: SEAPATH
+      repos:
+      - https://github.com/seapath/
+    - project: Shapeshifter
+      repos:
+      - https://github.com/shapeshifter/
+    - project: SOGNO
+      repos:
+      - https://github.com/sogno-platform/
+    - project: 'Super Advanced Meter (SAM) WG Architecture'
+      repos:
+      - https://github.com/super-advanced-meter
+    - project: 'Super Advanced Meter (SAM) WG Use Cases'
+      repos:
+      - https://github.com/super-advanced-meter
+    - project: TROLIE
+      repos:
+      - https://github.com/trolie
+- umbrella: 'Open Mainframe Project'
+  projects:
+    - project: Ambitus
+      repos:
+      - https://github.com/ambitus
+    - project: 'Anomaly Detection Engine for Linux Logs (ADE)'
+      repos:
+      - https://github.com/openmainframeproject/ade 
+    - project: 'CBT Tape'
+      repos:
+      - https://github.com/CBTTape
+    - project: 'COBOL Check'
+      repos:
+      - https://github.com/openmainframeproject/cobol-check
+    - project: 'COBOL Programming Course'
+      repos:
+      - https://github.com/openmainframeproject/cobol-programming-course
+    - project: 'COBOL Working Group'
+      repos:
+      - https://github.com/openmainframeproject/wg-cobol 
+    - project: Feilong
+      repos:
+      - https://github.com/openmainframeproject/feilong
+    - project: Galasa
+      repos:
+      - https://github.com/galasa-dev
+    - project: GenevaERS
+      repos:
+      - https://github.com/genevaers
+    - project: 'Mainframe Open Education'
+      repos:
+      - https://github.com/openmainframeproject/omp-education
+    - project: 'Modernization Working Group'
+      repos:
+      - https://github.com/openmainframeproject/wg-modernization 
+    - project: 'Open Mainframe Project Common'
+      repos:
+      - https://github.com/openmainframeproject/.github
+      - https://github.com/openmainframeproject/artwork
+      - https://github.com/openmainframeproject/cobol-code-dataset
+      - https://github.com/openmainframeproject/foundation
+      - https://github.com/openmainframeproject/mainframedebate
+      - https://github.com/openmainframeproject/Mentorships
+      - https://github.com/openmainframeproject/omp-landscape
+      - https://github.com/openmainframeproject/otel-sig-mainframe
+      - https://github.com/openmainframeproject/project-template
+      - https://github.com/openmainframeproject/smc-tools
+      - https://github.com/openmainframeproject/snipl
+      - https://github.com/openmainframeproject/src_vipa
+      - https://github.com/openmainframeproject/sysload
+      - https://github.com/openmainframeproject/tac
+      - https://github.com/openmainframeproject/wg-template
+      - https://github.com/openmainframeproject/zfcp-hbaapi
+    - project: 'Software Discovery Tool'
+      repos:
+      - https://github.com/openmainframeproject/software-discovery-tool
+      - https://github.com/openmainframeproject/software-discovery-tool-deploy 
+      - https://github.com/openmainframeproject/software-discovery-tool-data
+    - project: TerseDecompress
+      repos:
+      - https://github.com/openmainframeproject/tersedecompress
+      - https://github.com/openmainframeproject/tersedecompress-testdata 
+    - project: tessia
+      repos:
+      - https://github.com/tessia-project
+    - project: TSTerm
+      repos:
+      - https://github.com/TSTerminal
+    - project: 'z/OS Open Tools'
+      repos:
+      - https://github.com/ZOSOpenTools
+    - project: 'z/VM Community Tools'
+      repos:
+      - https://github.com/openmainframeproject/zvm-community-tools
+    - project: Zorow
+      repos:
+      - https://github.com/openmainframeproject/zorow
+    - project: Zowe
+      repos:
+      - https://github.com/zowe
+
